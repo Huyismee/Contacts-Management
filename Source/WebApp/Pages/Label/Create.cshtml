@@ -1,0 +1,49 @@
+﻿@page
+@model WebApp.Pages.Label.CreateModel
+@{
+}
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a asp-page="../index">
+                        <i class="icon-arrow-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Form Elements</div>
+                    </div>
+                    <form method="post" id="myform">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+
+                                    <div class="form-group">
+                                        <label>First name</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="label.LabelName"
+                                               placeholder="Enter Label" />
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" asp-page-handler="Edit" class="btn btn-success">Submit</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@page
+@model WebApp.Pages.Contact.InsertModel
+@{
+}
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="page-header">
+                <ul class="breadcrumbs">
+                    <li class="nav-home">
+                        <a asp-page="../index">
+                            <i class="icon-arrow-left"></i>
+                        </a>
+                    </li>
+                </ul>
+                <h3 class="fw-bold mb-3">  Import Contact</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div>
+                            <div>
+                                <form method="post" asp-page-handler="Insert" enctype="multipart/form-data">
+                                    <label>Insert file here:</label>
+                                    <input class="btn" type="file" accept=".xlsx" name="inputSessions" />
+                                    <button class="btn btn-outline-info" type="submit">Inport</button>
+                                </form>
+                            </div>
+                            @*  @if (Model.ValidSessions.Count > 0 || Model.invalidSessions.Count > 0)
+                            {
+                            if (Model.ValidSessions.Count > 0)
+                            {
+                            <h3>Valid Course Sessions</h3>
+                            foreach (var validSession in Model.ValidSessions)
+                            {
+                            <div>@validSession.ClassId - @validSession.TeacherId - @validSession.RoomId - @validSession.CourseId - @validSession.TimeSlotId </div>
+                            }
+                            }
+
+
+                            if (Model.invalidSessions.Count > 0)
+                            {
+                            <h3>Invalid Course Sessions</h3>
+                            foreach (var invalidSession in Model.invalidSessions)
+                            {
+                            <div>@invalidSession.ClassId - @invalidSession.TeacherId - @invalidSession.RoomId - @invalidSession.CourseId - @invalidSession.TimeSlotId</div>
+                            }
+                            }
+                            <br />
+                            <div style="color: red">Do you want to insert? All the invalid sessions will be ignore.</div>
+                            <form method="post" asp-page-handler="Approve">
+                            <button type="submit">Insert</button>
+                            <input type="hidden" value="@Model.ValidSessions" asp-for="ValidSessions" name="ValidSessions" />
+                            <button asp-page="/ImportSession">Back</button>
+                            </form>
+                            } *@
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

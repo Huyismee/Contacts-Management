@@ -1,0 +1,207 @@
+﻿@page 
+@model WebApp.Pages.Contact.CreateModel
+@{
+}
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a asp-page="../index">
+                        <i class="icon-arrow-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Form Elements</div>
+                    </div>
+                    <form method="post" id="myform" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Example file input</label>
+                                        <input type="file"
+                                               class="form-control-file"
+                                               accept="image/*"
+                                               name="uploadImage"
+                                               id="exampleFormControlFile1" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>First name</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               
+
+                                               name="firstName"
+                                               placeholder="Enter First name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last name</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               
+                                               name="lastName"
+                                               placeholder="Enter Last name" />
+                                    </div>
+
+                                    <div class="form-group dropdown">
+                                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                            <i class="fa fa-tag"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            @foreach (var label in Model.labels)
+                                            {
+                                                <label class="dropdown-item">
+                                                    <input type="checkbox" name="checkedLabels" value="@label.LabelId"> @label.LabelName
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Emails</label>
+                                        <button id="addEmail" class="btn"><i class="fa fa-plus" style="color: #077eda;"></i></button>
+
+                                        <table class="row mt-2">
+                                            <tbody class="emails">
+                                                <tr class="row">
+                                                    <td class="col-md-8">
+                                                        <input type="email"
+                                                               required
+                                                               class="form-control"
+                                                               name="emails[0].Email"
+                                                               placeholder="Enter email" />
+                                                    </td>
+                                                    <td class="col-md-2">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="emails[0].Label"
+                                                               placeholder="Label" />
+                                                    </td>
+                                                    <td class="col-md-2"><a class="remove btn btn-danger" onclick="remove(this)"><i class="fa fa-trash"></i> </a> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone numbers</label>
+                                        <button id="addPhone" class="btn"><i class="fa fa-plus" style="color: #077eda;"></i></button>
+                                        <table class="row mt-2">
+                                            <tbody class="phones">
+                                                <tr class="row">
+                                                    <td class="col-md-4">
+                                                        <input required name="phones[0].Phone" type="tel" class="form-control contact-phone" id="phone" placeholder="Phone number">
+                                                        <input type="hidden" name="phones[0].Code" value="vn"/>
+                                                    </td>
+                                                    <td class="col-md-2">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="phones[0].Label"
+                                                               placeholder="Label" />
+                                                    </td>
+                                                    <td class="col-md-2"><a class="remove btn btn-danger" onclick="remove(this)"><i class="fa fa-trash"></i></a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Dob">Date of birth</label>
+                                        <input type="date" class="form-control"  name="dob" id="Dob" rows="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Comment</label>
+                                        <textarea class="form-control" id="comment" name="note" rows="5"> </textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" asp-page-handler="Create" class="btn btn-success">Submit</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.5.0/build/js/intlTelInput.min.js"></script>
+<script>
+    function initialize(input, code) {
+        window.intlTelInput(input, {
+            initialCountry: code,
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.5.0/build/js/utils.js",
+            hiddenInput: function (telInputName) {
+                return {
+                    phone: "phone_full",
+                    country: "country_code"
+                };
+            }
+        });
+    }
+
+</script>
+<script>
+    var k = 0;
+    $(document).ready(function () {
+        $(".phones> tr ").each(function () {
+            countryCode = $(this).find("td input[name$='Code']").attr("value");
+            const input = $(this).find("td input[name$='Phone']")[0];
+            initialize(input, countryCode);
+            k++;
+        });
+
+    })
+    $('#myform').submit(function () {
+        var i = 0;
+        var j = 0;
+        $(".emails> tr ").each(function () {
+            $(this).find("td input[name$='Email']").attr("name", "emails[" + i + "].Email");
+            $(this).find("td input[name$='Label']").attr("name", "emails[" + i + "].Label");
+            console.log(i);
+            i++;
+        });
+        $(".phones> tr ").each(function () {
+            $(this).find("td input[name$='Phone']").attr("name", "phones[" + j + "].Phone");
+            $(this).find("td input[name$='Label']").attr("name", "phones[" + j + "].Label");
+            $(this).find("td input[name$='Code']").attr("name", "phones[" + j + "].Code");
+            const input = $(this).find("td input[name$='Phone']")[0];
+            const iti = intlTelInput.getInstance(input);
+            var countryData = iti.getSelectedCountryData().iso2;
+            console.log(countryData);
+            $(this).find("td input[name$='Code']").attr("value", countryData);
+
+            console.log(j);
+            j++;
+        });
+        // ...
+        return true; // return false to cancel form action
+    });
+    function remove(e) {
+        $(e).parent().parent().remove();
+    }
+
+    $('#addEmail').on('click', addEmail);
+    $('#addPhone').on('click', addPhone);
+    function addEmail(event) {
+        event.preventDefault();
+        $('.emails').append('<tr class="row">\r\n    <td class="col-md-8">\r\n        <input type="email"\r\n               class="form-control"\r\n              name="emails[i].Email"\r\n       required        placeholder="Enter email" />\r\n    </td>\r\n    <td class="col-md-2">\r\n        <input type="text"\r\n              class="form-control"\r\n               name="emails[i].Label"\r\n               placeholder="Label" />\r\n    </td>\r\n    <td class="col-md-2"><a class="remove btn btn-danger" onclick="remove(this)"><i class="fa fa-trash"></i> </a> </td>');
+    };
+    function addPhone(event) {
+        event.preventDefault();
+        $('.phones').append(`<tr class="row">\r\n<td class="col-md-4">\r\n<input required name="phones[j].Phone" type="tel" class="form-control contact-phone" id="phone${k}" placeholder="Phone number">\r\n<input type="hidden" name="phones[j].Code"/>\r\n</td>\r\n<td class="col-md-2">\r\n<input type="text"\r\nclass="form-control"\r\nname="phones[j].Label"\r\n              \r\n                placeholder="Label" />\r\n     </td>\r\n     <td class="col-md-2"><a class="remove btn btn-danger" onclick="remove(this)"><i class="fa fa-trash"></i></a></td>\r\n </tr>\r\n j++;`);
+        const input = document.querySelector(`#phone${k}`);
+        initialize(input, "vn");
+        k++;
+    };
+</script>

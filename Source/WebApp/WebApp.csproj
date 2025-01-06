@@ -1,0 +1,285 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\intlTelInput.scss" />
+    <None Include="wwwroot\css\kaiadmin.css.map" />
+    <None Include="wwwroot\css\plugins.css.map" />
+    <None Include="wwwroot\css\_metadata.scss" />
+    <None Include="wwwroot\fonts\fontawesome\fa-brands-400.svg" />
+    <None Include="wwwroot\fonts\fontawesome\fa-brands-400.woff2" />
+    <None Include="wwwroot\fonts\fontawesome\fa-regular-400.svg" />
+    <None Include="wwwroot\fonts\fontawesome\fa-regular-400.woff2" />
+    <None Include="wwwroot\fonts\fontawesome\fa-solid-900.svg" />
+    <None Include="wwwroot\fonts\fontawesome\fa-solid-900.woff2" />
+    <None Include="wwwroot\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\fonts\simple-line-icons\Simple-Line-Icons.woff2" />
+    <None Include="wwwroot\fonts\summernote\summernote.woff2" />
+    <None Include="wwwroot\img\examples\logo.svg" />
+    <None Include="wwwroot\img\examples\logo1.svg" />
+    <None Include="wwwroot\img\examples\logo2.svg" />
+    <None Include="wwwroot\img\examples\logoinvoice.svg" />
+    <None Include="wwwroot\img\flags%402x.webp" />
+    <None Include="wwwroot\img\flags.webp" />
+    <None Include="wwwroot\img\globe%402x.webp" />
+    <None Include="wwwroot\img\globe.webp" />
+    <None Include="wwwroot\img\globe_light%402x.webp" />
+    <None Include="wwwroot\img\globe_light.webp" />
+    <None Include="wwwroot\img\kaiadmin\favicon.svg" />
+    <None Include="wwwroot\img\kaiadmin\icon.svg" />
+    <None Include="wwwroot\img\kaiadmin\logo_dark.svg" />
+    <None Include="wwwroot\img\kaiadmin\logo_light.svg" />
+    <None Include="wwwroot\img\logoproduct.svg" />
+    <None Include="wwwroot\img\logoproduct2.svg" />
+    <None Include="wwwroot\img\logoproduct3.svg" />
+    <None Include="wwwroot\img\undraw\undraw_blank_canvas_3rbb.svg" />
+    <None Include="wwwroot\img\undraw\undraw_creative_team_r90h.svg" />
+    <None Include="wwwroot\img\undraw\undraw_empty_xct9.svg" />
+    <None Include="wwwroot\img\undraw\undraw_Hello_qnas.svg" />
+    <None Include="wwwroot\img\undraw\undraw_not_found_60pq.svg" />
+    <None Include="wwwroot\img\undraw\undraw_no_data_qbuo.svg" />
+    <None Include="wwwroot\img\undraw\undraw_page_not_found_su7k.svg" />
+    <None Include="wwwroot\img\undraw\undraw_sign_in_e6hj.svg" />
+    <None Include="wwwroot\img\undraw\undraw_tabs_jf82.svg" />
+    <None Include="wwwroot\img\undraw\undraw_Taken_if77.svg" />
+    <None Include="wwwroot\img\undraw\undraw_update_uxn2.svg" />
+    <None Include="wwwroot\img\undraw\undraw_upgrade_06a0.svg" />
+    <None Include="wwwroot\img\visa.svg" />
+    <None Include="wwwroot\js\core\bootstrap.min.js" />
+    <None Include="wwwroot\js\core\jquery-3.7.1.min.js" />
+    <None Include="wwwroot\js\core\popper.min.js" />
+    <None Include="wwwroot\js\data.js" />
+    <None Include="wwwroot\js\data.min.js" />
+    <None Include="wwwroot\js\demo.js" />
+    <None Include="wwwroot\js\i18n\ar\countries.js" />
+    <None Include="wwwroot\js\i18n\ar\index.js" />
+    <None Include="wwwroot\js\i18n\ar\interface.js" />
+    <None Include="wwwroot\js\i18n\bg\countries.js" />
+    <None Include="wwwroot\js\i18n\bg\index.js" />
+    <None Include="wwwroot\js\i18n\bg\interface.js" />
+    <None Include="wwwroot\js\i18n\bn\countries.js" />
+    <None Include="wwwroot\js\i18n\bn\index.js" />
+    <None Include="wwwroot\js\i18n\bn\interface.js" />
+    <None Include="wwwroot\js\i18n\de\countries.js" />
+    <None Include="wwwroot\js\i18n\de\index.js" />
+    <None Include="wwwroot\js\i18n\de\interface.js" />
+    <None Include="wwwroot\js\i18n\el\countries.js" />
+    <None Include="wwwroot\js\i18n\el\index.js" />
+    <None Include="wwwroot\js\i18n\el\interface.js" />
+    <None Include="wwwroot\js\i18n\en\countries.js" />
+    <None Include="wwwroot\js\i18n\en\index.js" />
+    <None Include="wwwroot\js\i18n\en\interface.js" />
+    <None Include="wwwroot\js\i18n\es\countries.js" />
+    <None Include="wwwroot\js\i18n\es\index.js" />
+    <None Include="wwwroot\js\i18n\es\interface.js" />
+    <None Include="wwwroot\js\i18n\fa\countries.js" />
+    <None Include="wwwroot\js\i18n\fa\index.js" />
+    <None Include="wwwroot\js\i18n\fa\interface.js" />
+    <None Include="wwwroot\js\i18n\fi\countries.js" />
+    <None Include="wwwroot\js\i18n\fi\index.js" />
+    <None Include="wwwroot\js\i18n\fi\interface.js" />
+    <None Include="wwwroot\js\i18n\fr\countries.js" />
+    <None Include="wwwroot\js\i18n\fr\index.js" />
+    <None Include="wwwroot\js\i18n\fr\interface.js" />
+    <None Include="wwwroot\js\i18n\hi\countries.js" />
+    <None Include="wwwroot\js\i18n\hi\index.js" />
+    <None Include="wwwroot\js\i18n\hi\interface.js" />
+    <None Include="wwwroot\js\i18n\hu\countries.js" />
+    <None Include="wwwroot\js\i18n\hu\index.js" />
+    <None Include="wwwroot\js\i18n\hu\interface.js" />
+    <None Include="wwwroot\js\i18n\id\countries.js" />
+    <None Include="wwwroot\js\i18n\id\index.js" />
+    <None Include="wwwroot\js\i18n\id\interface.js" />
+    <None Include="wwwroot\js\i18n\index.js" />
+    <None Include="wwwroot\js\i18n\ja\countries.js" />
+    <None Include="wwwroot\js\i18n\ja\index.js" />
+    <None Include="wwwroot\js\i18n\ja\interface.js" />
+    <None Include="wwwroot\js\i18n\ko\countries.js" />
+    <None Include="wwwroot\js\i18n\ko\index.js" />
+    <None Include="wwwroot\js\i18n\ko\interface.js" />
+    <None Include="wwwroot\js\i18n\mr\countries.js" />
+    <None Include="wwwroot\js\i18n\mr\index.js" />
+    <None Include="wwwroot\js\i18n\mr\interface.js" />
+    <None Include="wwwroot\js\i18n\nl\countries.js" />
+    <None Include="wwwroot\js\i18n\nl\index.js" />
+    <None Include="wwwroot\js\i18n\nl\interface.js" />
+    <None Include="wwwroot\js\i18n\pt\countries.js" />
+    <None Include="wwwroot\js\i18n\pt\index.js" />
+    <None Include="wwwroot\js\i18n\pt\interface.js" />
+    <None Include="wwwroot\js\i18n\ro\countries.js" />
+    <None Include="wwwroot\js\i18n\ro\index.js" />
+    <None Include="wwwroot\js\i18n\ro\interface.js" />
+    <None Include="wwwroot\js\i18n\ru\countries.js" />
+    <None Include="wwwroot\js\i18n\ru\index.js" />
+    <None Include="wwwroot\js\i18n\ru\interface.js" />
+    <None Include="wwwroot\js\i18n\sv\countries.js" />
+    <None Include="wwwroot\js\i18n\sv\index.js" />
+    <None Include="wwwroot\js\i18n\sv\interface.js" />
+    <None Include="wwwroot\js\i18n\te\countries.js" />
+    <None Include="wwwroot\js\i18n\te\index.js" />
+    <None Include="wwwroot\js\i18n\te\interface.js" />
+    <None Include="wwwroot\js\i18n\th\countries.js" />
+    <None Include="wwwroot\js\i18n\th\index.js" />
+    <None Include="wwwroot\js\i18n\th\interface.js" />
+    <None Include="wwwroot\js\i18n\tr\countries.js" />
+    <None Include="wwwroot\js\i18n\tr\index.js" />
+    <None Include="wwwroot\js\i18n\tr\interface.js" />
+    <None Include="wwwroot\js\i18n\ur\countries.js" />
+    <None Include="wwwroot\js\i18n\ur\index.js" />
+    <None Include="wwwroot\js\i18n\ur\interface.js" />
+    <None Include="wwwroot\js\i18n\zh\countries.js" />
+    <None Include="wwwroot\js\i18n\zh\index.js" />
+    <None Include="wwwroot\js\i18n\zh\interface.js" />
+    <None Include="wwwroot\js\intl-tel-input\utils-compiled.js" />
+    <None Include="wwwroot\js\intlTelInput.js" />
+    <None Include="wwwroot\js\intlTelInput.min.js" />
+    <None Include="wwwroot\js\intlTelInputWithUtils.js" />
+    <None Include="wwwroot\js\intlTelInputWithUtils.min.js" />
+    <None Include="wwwroot\js\kaiadmin.js" />
+    <None Include="wwwroot\js\kaiadmin.min.js" />
+    <None Include="wwwroot\js\plugin\bootstrap-notify\bootstrap-notify.min.js" />
+    <None Include="wwwroot\js\plugin\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <None Include="wwwroot\js\plugin\bootstrap-toggle\bootstrap-toggle.min.js" />
+    <None Include="wwwroot\js\plugin\chart-circle\circles.min.js" />
+    <None Include="wwwroot\js\plugin\chart.js\chart.min.js" />
+    <None Include="wwwroot\js\plugin\datatables\datatables.min.js" />
+    <None Include="wwwroot\js\plugin\datepicker\bootstrap-datetimepicker.min.js" />
+    <None Include="wwwroot\js\plugin\dropzone\dropzone.min.js" />
+    <None Include="wwwroot\js\plugin\fullcalendar\fullcalendar.min.js" />
+    <None Include="wwwroot\js\plugin\gmaps\gmaps.js" />
+    <None Include="wwwroot\js\plugin\jquery-scrollbar\jquery.scrollbar.min.js" />
+    <None Include="wwwroot\js\plugin\jquery.magnific-popup\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\js\plugin\jquery.sparkline\jquery.sparkline.min.js" />
+    <None Include="wwwroot\js\plugin\jquery.validate\jquery.validate.min.js" />
+    <None Include="wwwroot\js\plugin\jsvectormap\jsvectormap.min.js" />
+    <None Include="wwwroot\js\plugin\jsvectormap\world.js" />
+    <None Include="wwwroot\js\plugin\list.js\list.min.js" />
+    <None Include="wwwroot\js\plugin\moment\moment.min.js" />
+    <None Include="wwwroot\js\plugin\owl-carousel\owl.carousel.min.js" />
+    <None Include="wwwroot\js\plugin\select2\select2.full.min.js" />
+    <None Include="wwwroot\js\plugin\sortable\sortable.min.js" />
+    <None Include="wwwroot\js\plugin\sticky-sidebar\sticky-sidebar.min.js" />
+    <None Include="wwwroot\js\plugin\summernote\summernote-lite.min.js" />
+    <None Include="wwwroot\js\plugin\sweetalert\sweetalert.min.js" />
+    <None Include="wwwroot\js\plugin\webfont\webfont.min.js" />
+    <None Include="wwwroot\js\setting-demo.js" />
+    <None Include="wwwroot\js\setting-demo2.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\utils.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.2.1" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
+    <PackageReference Include="Flurl.Http.Newtonsoft" Version="0.9.1" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.40" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.17" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\i18n\ar\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ar\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ar\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bg\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bg\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bg\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bn\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bn\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\bn\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\de\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\de\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\de\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\el\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\el\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\el\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\en\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\en\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\en\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\es\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\es\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\es\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fa\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fa\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fa\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fi\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fi\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fi\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fr\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fr\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\fr\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hi\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hi\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hi\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hu\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hu\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\hu\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\id\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\id\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\id\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ja\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ja\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ja\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ko\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ko\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ko\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\mr\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\mr\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\mr\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\nl\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\nl\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\nl\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\pt\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\pt\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\pt\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ro\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ro\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ro\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ru\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ru\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ru\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\sv\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\sv\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\sv\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\te\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\te\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\te\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\th\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\th\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\th\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\tr\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\tr\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\tr\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ur\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ur\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\ur\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\zh\countries.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\zh\index.ts" />
+    <TypeScriptCompile Include="wwwroot\js\i18n\zh\interface.ts" />
+    <TypeScriptCompile Include="wwwroot\js\intl-tel-input.ts" />
+    <TypeScriptCompile Include="wwwroot\js\intl-tel-input\data.ts" />
+    <TypeScriptCompile Include="wwwroot\js\intl-tel-input\intlTelInputWithUtils.ts" />
+    <TypeScriptCompile Include="wwwroot\js\intlTelInput.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\bootstrap\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="wwwroot\lib\jquery-validation\" />
+    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
+  </ItemGroup>
+
+</Project>

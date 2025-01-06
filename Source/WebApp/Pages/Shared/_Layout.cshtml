@@ -1,0 +1,348 @@
+﻿@using Flurl.Http
+@using PRN231_FinalProject.DTO
+@using Flurl
+@{
+    string link = "http://localhost:5126/api";
+    List<LabelDTO> labels = new List<LabelDTO>();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApp</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Datatables - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="~/img/kaiadmin/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script src="~/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Public Sans:300,400,500,600,700"] },
+            custom: { "families": ["Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/css/fonts.css'] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/plugins.min.css">
+    <link rel="stylesheet" href="~/css/kaiadmin.min.css">
+    <link rel="stylesheet" href="~/css/demo.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.5.0/build/css/intlTelInput.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar" data-background-color="white">
+            <div class="sidebar-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="white">
+
+                    <a asp-page="../index" class="logo">
+                        <img src="~/img/Google_Contacts_icon.svg.png" alt="navbar brand" class="navbar-brand" height="40">
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
+                        </button>
+                    </div>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+                </div>
+                <!-- End Logo Header -->
+            </div>
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <ul class="nav nav-secondary">
+                        @if (Context.Request.Path.StartsWithSegments("/Contact/Create"))
+                        {
+                            <li class="nav-item active">
+
+                                <a asp-page="/Contact/Create" class="btn form-button-action btn-clean btn-round" style="align-items: baseline">
+                                    <i class="fas fa-plus" style="margin-right: 5px"></i>
+                                    <p class="text-section">
+                                        Create contact
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-section">
+
+                                <a asp-page="/Contact/Create" class="btn form-button-action btn-clean btn-round" style="align-items: baseline">
+                                    <i class="fas fa-plus" style="margin-right: 5px"></i>
+                                    <p class="text-section">
+                                        Create contact
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        @if (Context.Request.Path.Equals("/"))
+                        {
+                            <li class="nav-item active">
+                                <a asp-page="/index">
+                                    <i class="fas fa-user"></i>
+                                    <p>
+                                        Contacts
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a asp-page="/index">
+                                    <i class="fas fa-user"></i>
+                                    <p>
+                                        Contacts
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                        @if (Context.Request.Path.Equals("/Dial"))
+                        {
+                            <li class="nav-item">
+                                <a href="#dashboard">
+                                    <i class="fas fa-phone"></i>
+                                    <p>
+                                        Dial
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a href="#dashboard">
+                                    <i class="fas fa-phone"></i>
+                                    <p>
+                                        Dial
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Fix & manage</h4>
+                        </li>
+                        @if (Context.Request.Path.StartsWithSegments("/Contact/Insert"))
+                        {
+                            <li class="nav-item active">
+                                <a asp-page="/Contact/Insert">
+                                    <i class="fas fa-file-import"></i>
+                                    <p>Import</p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a asp-page="/Contact/Insert">
+                                    <i class="fas fa-file-import"></i>
+                                    <p>Import</p>
+                                </a>
+                            </li>
+                        }
+                        @if (Context.Request.Path.StartsWithSegments("/Trash"))
+                        {
+                            <li class="nav-item active ">
+                                <a asp-page="/Trash/Index">
+                                    <i class="fas fa-trash"></i>
+                                    <p>Trash</p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                <a asp-page="/Trash/Index">
+                                    <i class="fas fa-trash"></i>
+                                    <p>Trash</p>
+                                </a>
+                            </li>
+                        }
+
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section"><span>Label</span>  <a asp-page="/Label/Create" style="float: inline-end;"> <i class="fas fa-plus fa-2x" style="margin-right: 5px" a></i></a></h4>
+
+                        </li>
+                        @{
+                            try
+                            {
+                                var userSession = Context.Session.GetInt32("UserSession");
+                                var serializer = new Flurl.Http.Newtonsoft.NewtonsoftJsonSerializer();
+                                labels = await link.AppendPathSegment("Label/User/" + userSession)
+                                .WithSettings(s => s.JsonSerializer = serializer)
+                                .GetJsonAsync<List<LabelDTO>>();
+                            }
+                            catch (FlurlHttpException ex)
+                            {
+                                var err = await ex.GetResponseJsonAsync<Exception>(); // or GetResponseStringAsync(), etc.
+                                Console.WriteLine($"Error returned from {ex.Call.Request.Url}: {err.Message}");
+                            }
+                        }
+                        @foreach (var label in labels)
+                        {
+                            @if (Context.Request.Path.StartsWithSegments("/Label/" + label.LabelId))
+                            {
+                                <li class="nav-item active ">
+                                    <a asp-page="/Label/index" asp-route-id="@label.LabelId">
+                                        <i class="fas fa-tag"></i>
+                                        <p>@label.LabelName</p>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item ">
+                                    <a asp-page="/Label/index" asp-route-id="@label.LabelId">
+                                        <i class="fas fa-tag"></i>
+                                        <p>@label.LabelName</p>
+                                    </a>
+                                </li>
+                            }
+                            
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="main-panel">
+            <div class="main-header">
+                <div class="main-header-logo">
+                    <!-- Logo Header -->
+                    <div class="logo-header" data-background-color="dark">
+
+                        <a href="../index.html" class="logo">
+                            <img src="~/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20">
+                        </a>
+                        <div class="nav-toggle">
+                            <button class="btn btn-toggle toggle-sidebar">
+                                <i class="gg-menu-right"></i>
+                            </button>
+                            <button class="btn btn-toggle sidenav-toggler">
+                                <i class="gg-menu-left"></i>
+                            </button>
+                        </div>
+                        <button class="topbar-toggler more">
+                            <i class="gg-more-vertical-alt"></i>
+                        </button>
+
+                    </div>
+                    <!-- End Logo Header -->
+                </div>
+                <!-- Navbar Header -->
+                <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+
+                    <div class="container-fluid">
+
+                        <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+
+                            <li class="nav-item topbar-user dropdown hidden-caret">
+                                <a class="dropdown-toggle profile-pic" asp-page="/login/index" aria-expanded="false">
+                                    <div class="avatar-sm">
+                                        <img src="~/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                                    </div>
+                                    <span class="profile-username">
+                                        <span class="op-7"></span> <span class="fw-bold">Log out</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+            </div>
+            @RenderBody()
+
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!--   Core JS Files   -->
+    <script src="~/js/core/jquery-3.7.1.min.js"></script>
+    <script src="~/js/core/popper.min.js"></script>
+    <script src="~/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="~/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>	<!-- Datatables -->
+    <script src="~/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Kaiadmin JS -->
+    <script src="~/js/kaiadmin.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#basic-datatables').DataTable({
+            });
+
+            $('#multi-filter-select').DataTable({
+                "pageLength": 5,
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select class="form-select"><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
+
+            // Add Row
+            $('#add-row').DataTable({
+                "pageLength": 5,
+            });
+
+            var action = '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+            $('#addRowButton').click(function () {
+                $('#add-row').dataTable().fnAddData([
+                    $("#addName").val(),
+                    $("#addPosition").val(),
+                    $("#addOffice").val(),
+                    action
+                ]);
+                $('#addRowModal').modal('hide');
+
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

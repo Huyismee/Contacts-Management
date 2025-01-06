@@ -1,0 +1,151 @@
+﻿@page
+@model WebApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form method="post">
+
+                        <div class="card-header pb-5">
+                            <h4 class="card-title">Contact</h4>
+                            <input type="checkbox" id="selectAll"> Select all</input>
+                            <div class="form-group dropdown float-end">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                    <i class="fa fa-tag"></i>
+                                </button>
+                                <div class="dropdown-menu float-end">
+                                    @foreach (var label in Model.labels)
+                                    {
+                                        <label class="dropdown-item">
+                                            <button class="btn" type="submit" asp-page-handler="AddLabel" name="labelId" value="@label.LabelId"> @label.LabelName</button>
+                                        </label>
+                                    }
+                                </div>
+                            </div>
+                            <button class="float-end btn" type="submit" asp-page-handler="Delete"><i class="fa fa-trash fa-2x" style="color: red"></i></button>
+                            <button class="float-end btn" type="submit" asp-page-handler="Export"><i class="fa fa-arrow-alt-circle-up fa-2x" style="color: blue"></i> Export</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="basic-datatables" class="display table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Email</th>
+                                            <th>Phone number</th>
+                                            <th>Labels</th>
+                                            <th>History</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Email</th>
+                                            <th>Phone number</th>
+                                            <th>Labels</th>
+                                            <th>History</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+
+                                        @foreach (var contact in @Model.contacts)
+                                        {
+
+                                            <tr>
+
+                                                <td>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="checkedContacts" value="@contact.ContactId" style="width: 25px; height: 25px; background: white; border-radius: 5px; border: 2px solid #555;">
+                                                    </label>
+                                                </td>
+                                                <td>@contact.Firstname</td>
+                                                <td>@contact.Lastname</td>
+                                                @if (contact.ContactEmails.Any())
+                                                {
+                                                    <td>
+                                                        @foreach (var email in contact.ContactEmails)
+                                                        {
+                                                        <div>@email.Email</div>
+                                                        }
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+                                                @if (contact.ContactPhones.Any())
+                                                {
+                                                    <td>
+                                                        @foreach (var phone in contact.ContactPhones)
+                                                        {
+                                                            <div>
+                                                                @phone.Phone
+                                                            </div>
+                                                        }
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+                                                <td>
+                                                    @if (contact.ContactsLabels.Any())
+                                                    {
+                                                        @foreach (var label in contact.ContactsLabels)
+                                                        {
+                                                            <a asp-page="Label/index" asp-route-id="@label.LabelId" class="btn btn-outline-dark">@label.Label.LabelName </a>
+                                                        }
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (contact.History.HasValue)
+                                                    {
+                                                        @contact.History.Value.ToString("MM/dd/yyyy")
+                                                    }
+                                                </td>
+                                                <td class=""><a asp-page="Contact/index" asp-route-id="@contact.ContactId">Detail</a></td>
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <nav class="pull-left">
+            <ul class="nav">
+            </ul>
+        </nav>
+        <div class="copyright ms-auto">
+        </div>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#selectAll").click(function () {
+        $("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+
+    });
+</script>
